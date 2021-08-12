@@ -1,6 +1,6 @@
 # ansicolors
 
-### Description: 
+## Description: 
 This c++ library will help you change the background and text color and style.
 
 ## Usage:

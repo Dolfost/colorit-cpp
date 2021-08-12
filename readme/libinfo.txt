@@ -1,0 +1,148 @@
+filename:	ansicolors.hpp
+version: 	2.0-relase/rework1
+funcount:	4
+structcount:	0
+created: 	25/07/2021
+created by:	https://github.com/Dolfost
+
+description:
+Change the color and mode of the text by passing constants to the stream
+by your favorite method of output such as 'cout' or 'printf()', or using
+functions setBKGRND() and setFRGRND().
+(see list below)
+
+usage:
+void setFOREGROUND(const short code), void setFRGRND(const short code)
+
+void return : 		has no return value,
+setFRGRND : 		set foreground (text) color,
+const short code :	color value [0 - 255];
+
+
+void setBACKGROUND(const *char), void setBKGRND(const *char)
+
+void return : 		has no return value,
+setBACKGROUND :		set background color,
+const char *code :	color value [0 - 255], reads only code[0][1][2] values;
+
+changes:
+2.0-relase/rework1 28/07/2021		fully reworked the libriary, added the 
+					setFRGRND() and setBKGRND() functions;
+
+syntax: 
+XXX   - foreground color,
+mXXX  - text mode (style),
+bXXX  - background color,
+xXXXh - high intensty color;
+
+example: 
+#include <iostream>
+#include "ansicolors/ansicolors.hpp"
+int main(void) {
+	std::cout << RED ITALIC "Hello!" sRST "\n"; // red itaic text
+	std::cout << BLK bWHT BLD "Im an colorful libriary!" sRST "\n"; // black bold text on white background
+	return 0;
+}
+
+constants list:
+==Reset:
+sRST		style reset, resets all changes;
+
+==Text modes:
+mBOLD 		bold mode,
+mDIM  		dim/faint mode,
+mFAINT 		dim/faint mode,
+mITALIC 	italic mode,
+mUNDERLINE	underline mode,
+mBLINKING	blinking mode,
+mINVERT		invert/reverse mode,
+mREVERSE	invert/reverse mode,
+mINVISIBLE	invisible mode,
+mSTRIKETHROUGH	strikethrough mode,
+                
+mBLD 		bold mode,
+mDM  		dim/faint mode,
+mFNT 		dim/faint mode,
+mITLC 		italic mode,
+mUNDRLN		underline mode,
+mBLNK		blink mode,
+mINVRT		invert/reverse mode,
+mRVRS		invert/reverse mode,
+mINVSBL		invisible mode,
+mSTRKTHRGH	strikethrough mode;
+
+==Foreground colors:
+BLACK		black,
+RED		red,
+GREEN		green,
+YELLOW		yellow,
+BLUE		blue,
+MAGNETA		magneta,
+CYAN		cyan,
+WHITE		white,
+                
+BLK		black,
+RED		red,
+GRN		green,
+YEL		yellow,
+BLU		blue,
+MAG		magneta,
+CYN		cyan,
+WHT		white;
+                
+==Hight intensty foreground colors:
+BLACKh		black,
+REDh		red,
+GREENh		green,
+YELLOWh		yellow,
+BLUEh		blue,
+MAGNETAh	magneta,
+CYANh		cyan,
+WHITEh		white,
+                
+BLKh		black,
+REDh		red,
+GRNh		green,
+YELh		yellow,
+BLUh		blue,
+MAGh		magneta,
+CYNh		cyan,
+WHTh		white;
+
+==Backgroud colors:
+bBLACK		black,
+bRED		red,
+bGREEN		green,
+bYELLOW		yellow,
+bBLUE		blue,
+bMAGNETA	magneta,
+bCYAN		cyan,
+bWHITE		white,
+               
+bBLK		black,
+bRED		red,
+bGRN		green,
+bYEL		yellow,
+bBLU		blue,
+bMAGT		magneta,
+bCYN		cyan,
+bWHT		white;
+                
+==Hight intensty background colors:
+bBLACKh		black,
+bREDh		red,
+bGREENh		green,
+bYELLOWh	yellow,
+bBLUEh		blue,
+bMAGNETAh	magneta,
+bCYANh		cyan,
+bWHITEh		white,
+                
+bBLKh		black,
+bREDh		red,
+bGRNh		green,
+bYELh		yellow,
+bBLUh		blue,
+bMAGh		magneta,
+bCYNh		cyan,
+bWHTh		white;

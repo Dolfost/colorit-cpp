@@ -8,7 +8,7 @@ Independently of each other you can change the style and color of the text, the 
 
 ### Functions:
 >`setBACKGROUND(*char)`, `setBACKGROUND(short)`,   
->`setFOREGROUND(*char)`, `setFOREGROUND(short)`.  
+>`setFOREGROUND(*char)`, `setFOREGROUND(short)`;  
 ##### Arguments:  
 > `short`: *range*: [0 - 255],  
 >`*char`: array (adress of first element of array). 
@@ -22,7 +22,7 @@ Namely, `char str1[4] {"120"}` is suitable, and `char srt2[5] {"1203"}` is not. 
 > ![Colors](https://github.com/Dolfost/ansicolors/blob/main/readme/terminal_colors.png)
 #### More about functions: [libinfo.txt](https://github.com/Dolfost/ansicolors/blob/main/readme/libinfo.txt).
 
-## Constants:
+### Constants:
 
 #### Text modes:
 mXXX           | Name

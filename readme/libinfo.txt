@@ -146,3 +146,5 @@ bBLUh		blue,
 bMAGh		magneta,
 bCYNh		cyan,
 bWHTh		white;
+
+license: https://github.com/Dolfost/ansicolors/blob/main/COPYING

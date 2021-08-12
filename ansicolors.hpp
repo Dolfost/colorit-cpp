@@ -1,4 +1,4 @@
-// ansicolors.h -- colors based on ANSI Escape Sequences
+// ansicolors.hpp -- <lib> ANSI Sequences constants of colors and styles
 
 #ifndef ANSICOLORS_H
 #define ANSICOLORS_H
@@ -150,4 +150,5 @@ void setBKGRND(const unsigned short arg) {
 #endif
 
 // last edit: 12/08/2021
-// developed by Dolfost
+// developed by https://github.com/Dolfost
+// license : https://github.com/Dolfost/ansicolors/blob/main/COPYING

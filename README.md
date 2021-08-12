@@ -1,7 +1,8 @@
 # ansicolors
 
 ## Description: 
-This c++ library will help you change the background and text color and style.
+This C++ the library simplifies changing the appearance of the terminal text output.  
+Independently of each other you can change the style and color of the text, the background color.
 
 ## Usage:
 
@@ -12,14 +13,14 @@ This c++ library will help you change the background and text color and style.
 > `short`: *range*: [0 - 255],  
 >`*char`: array (adress of first element of array). 
  
-*To avoid overflowing the array, I do not recommend passing arrays larger than 4 bytes to the function.*
-#### More about functions: [Here](https://github.com/Dolfost/ansicolors/blob/main/readme/libinfo.txt).
+To avoid buffer overflow, do not pass pointers to the first elements of arrays that are larger than 4 bytes.
+Namely, `char str1[4] {"120"}` is suitable, and `char srt2[5] {"1203"}` is not. The number 3 from `str2` falls outside the array in the function.
+*The zero character (`'\0'`) is one of 4.*
 
-### Terminal colors:
+#### Terminal colors:
 
 > ![Colors](https://github.com/Dolfost/ansicolors/blob/main/readme/terminal_colors.png)
-
-
+#### More about functions: [libinfo.txt](https://github.com/Dolfost/ansicolors/blob/main/readme/libinfo.txt).
 
 ## Constants:
 
@@ -77,9 +78,7 @@ int main(void) {
 }
 ```
 
-### *That's not all, the rest of constants are* [Here](https://github.com/Dolfost/ansicolors/blob/main/readme/libinfo.txt). 
-
-> **I hope it will be useful to you.**  
+### That's not all, the rest of constants and other libinfo: [libinfo.txt](https://github.com/Dolfost/ansicolors/blob/main/readme/libinfo.txt). 
 
 ‎  
 ## License: LGPL-3.0

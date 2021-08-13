@@ -1,5 +1,5 @@
 filename:	ansicolors.hpp
-version: 	2.0-relase/rework1
+version: 	2.0.3
 funcount:	4
 structcount:	0
 created: 	25/07/2021
@@ -23,10 +23,10 @@ void setBACKGROUND(const *char), void setBKGRND(const *char)
 
 void return : 		has no return value,
 setBACKGROUND :		set background color,
-const char *code :	color value [0 - 255], reads only code[0][1][2] values;
+const char *code :	color value in char string [0 - 255];
 
 changes:
-2.0-relase/rework1 28/07/2021		fully reworked the libriary, added the 
+2.0.3		28/07/2021		fully reworked the libriary, added the 
 					setFRGRND() and setBKGRND() functions;
 
 syntax: 
@@ -40,7 +40,10 @@ example:
 #include "ansicolors/ansicolors.hpp"
 int main(void) {
 	std::cout << RED ITALIC "Hello!" sRST "\n"; // red itaic text
-	std::cout << BLK bWHT BLD "Im an colorful libriary!" sRST "\n"; // black bold text on white background
+
+	std::cout << BLK bWHT BLD "Im an colorful libriary!" sRST "\n";
+	// black bold text on white background
+
 	return 0;
 }
 

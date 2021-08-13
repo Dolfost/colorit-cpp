@@ -12,10 +12,6 @@ Independently of each other you can change the style and color of the text, the 
 ##### Arguments:  
 > `short`: *range*: [0 - 255],  
 >`*char`: array (adress of first element of array). 
- 
-To avoid buffer overflow, do not pass pointers to the first elements of arrays that are larger than 4 bytes.
-Namely, `char str1[4] {"120"}` is suitable, and `char srt2[5] {"1203"}` is not. The number 3 from `str2` falls outside the array in the function.
-*The zero character (`'\0'`) is one of 4.*
 
 #### Terminal colors:
 

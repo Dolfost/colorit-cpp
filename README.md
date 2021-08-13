@@ -22,7 +22,7 @@ Independently of each other you can change the style and color of the text, the 
 
 #### Text modes:
 mXXX           | Name
----------------|----------------------------
+---------------|-------------------------
 mBOLD 		     | bold mode
 mDIM  		     | dim/faint mode
 mFAINT 		     | dim/faint mode 
@@ -75,7 +75,7 @@ int main(void) {
 ```
 
 ### That's not all, the rest of constants and other libinfo: [libinfo.txt](https://github.com/Dolfost/ansicolors/blob/main/readme/libinfo.txt). 
-
+-------------------------------------------
 ‎  
 ## License: LGPL-3.0
 [GNU General Public License v3.0](https://github.com/Dolfost/ansicolors/blob/main/COPYING)  

@@ -65,7 +65,7 @@ bWHITE		 |    white
 #### Reset:
 sXXX      | Name
 ----------|---------------------------------
-sRST		  |     style reset, resets all changes;
+sRST		  |     style reset, resets all changes
 
 ### Example:
 ```C++

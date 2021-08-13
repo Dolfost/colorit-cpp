@@ -1,5 +1,5 @@
 filename:	ansicolors.hpp
-version: 	2.0.3
+version: 	2.1.0
 funcount:	4
 structcount:	0
 created: 	25/07/2021
@@ -12,22 +12,34 @@ functions setBKGRND() and setFRGRND().
 (see list below)
 
 usage:
-void setFOREGROUND(const short code), void setFRGRND(const short code)
+     setFRGRND                            setFRGRND
+void setFOREGROUND(const short arg), void setFOREGROUND(const *char code)
 
 void return : 		has no return value,
-setFRGRND : 		set foreground (text) color,
-const short code :	color value [0 - 255];
+setFOREGROUND : 	set foreground (text) color,
+setFRGRND :		alias (you can call a function through it),
+const char *code &
+const short arg :	color value [0 - 255];
 
-
-void setBACKGROUND(const *char), void setBKGRND(const *char)
+     setBKGRND				   setBKGRND
+void setBACKGROUND(const short arg), void setBACKGROUND(const *char code)
 
 void return : 		has no return value,
 setBACKGROUND :		set background color,
-const char *code :	color value in char string [0 - 255];
+setBKGRND : 		alias (you can call a function through it),
+const char *code &
+const short arg:	color value in char string [0 - 255];
+
+tips:
+Functions above read no more than the first three elements of the
+array or the first three digits of the number passed to the function.
 
 changes:
-2.0.3	28/07/2021			fully reworked the libriary, added the 
-					setFRGRND() and setBKGRND() functions;
+2.0.3	28/07/2021		completely rework the library, add
+				functions setFRGRND() and setBKGRND();
+
+2.1.0   13/08/2021		remove buffer overflow when an array larger
+				than 4 bytes is passed to the functions;
 
 syntax: 
 XXX   - foreground color,
@@ -48,10 +60,10 @@ int main(void) {
 }
 
 constants list:
-==Reset:
+-Reset:
 sRST		style reset, resets all changes;
 
-==Text modes:
+-Text modes:
 mBOLD 		bold mode,
 mDIM  		dim/faint mode,
 mFAINT 		dim/faint mode,
@@ -74,7 +86,7 @@ mRVRS		invert/reverse mode,
 mINVSBL		invisible mode,
 mSTRKTHRGH	strikethrough mode;
 
-==Foreground colors:
+-Foreground colors:
 BLACK		black,
 RED		red,
 GREEN		green,
@@ -93,7 +105,7 @@ MAG		magneta,
 CYN		cyan,
 WHT		white;
                 
-==Hight intensty foreground colors:
+-Hight intensty foreground colors:
 BLACKh		black,
 REDh		red,
 GREENh		green,
@@ -112,7 +124,7 @@ MAGh		magneta,
 CYNh		cyan,
 WHTh		white;
 
-==Backgroud colors:
+-Backgroud colors:
 bBLACK		black,
 bRED		red,
 bGREEN		green,
@@ -131,7 +143,7 @@ bMAGT		magneta,
 bCYN		cyan,
 bWHT		white;
                 
-==Hight intensty background colors:
+-Hight intensty background colors:
 bBLACKh		black,
 bREDh		red,
 bGREENh		green,
@@ -150,4 +162,6 @@ bMAGh		magneta,
 bCYNh		cyan,
 bWHTh		white;
 
-license: https://github.com/Dolfost/ansicolors/blob/main/COPYING
+links:
+  sourse:	https://github.com/Dolfost/ansicolors
+  license:	https://github.com/Dolfost/ansicolors/blob/main/COPYING

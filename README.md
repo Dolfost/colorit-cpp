@@ -9,7 +9,7 @@ Independently of each other you can change the style and color of the text, the 
 ### Functions
 >`setBACKGROUND(*char)`, `setBACKGROUND(short)`,   
 >`setFOREGROUND(*char)`, `setFOREGROUND(short)`;  
-##### Functions have no return values.
+**Functions have no return values.**
 ##### Arguments:  
 > `short`: *range*: [0 - 255],  
 >`*char`: array (adress of first element of array). 

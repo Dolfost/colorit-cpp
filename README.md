@@ -1,24 +1,25 @@
 # ansicolors
 
-## Description: 
+## Description 
 This C++ the library simplifies changing the appearance of the terminal text output.  
 Independently of each other you can change the style and color of the text, the background color.
 
-## Usage:
+## Usage
 
-### Functions:
+### Functions
 >`setBACKGROUND(*char)`, `setBACKGROUND(short)`,   
 >`setFOREGROUND(*char)`, `setFOREGROUND(short)`;  
+##### Functions have no return values.
 ##### Arguments:  
 > `short`: *range*: [0 - 255],  
 >`*char`: array (adress of first element of array). 
 
-#### Terminal colors:
+#### Terminal colors
 
 > ![Colors](https://github.com/Dolfost/ansicolors/blob/main/readme/terminal_colors.png)
 #### More about functions: [libinfo.txt](https://github.com/Dolfost/ansicolors/blob/main/readme/libinfo.txt).
 
-### Constants:
+### Constants
 
 #### Text modes:
 mXXX           | Name
@@ -58,7 +59,7 @@ bMAGNETA	 |    magneta
 bCYAN		   |    cyan
 bWHITE		 |    white
 
-#### Reset:
+#### Reset
 sXXX      | Name
 ----------|---------------------------------
 sRST		  |     style reset, resets all changes

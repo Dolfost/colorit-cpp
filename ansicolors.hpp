@@ -151,4 +151,4 @@ void setBKGRND(const unsigned short arg) {
 
 // last edit: 12/08/2021
 // developed by https://github.com/Dolfost
-// license : https://github.com/Dolfost/ansicolors/blob/main/COPYING
+// license : https://github.com/Dolfost/ansicolors-cpp/blob/main/COPYING

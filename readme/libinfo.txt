@@ -26,7 +26,7 @@ setBACKGROUND :		set background color,
 const char *code :	color value in char string [0 - 255];
 
 changes:
-2.0.3		28/07/2021		fully reworked the libriary, added the 
+2.0.3	28/07/2021			fully reworked the libriary, added the 
 					setFRGRND() and setBKGRND() functions;
 
 syntax: 

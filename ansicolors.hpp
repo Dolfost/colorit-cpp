@@ -120,7 +120,7 @@
 
 void setFRGRND(const char *code) {
 	char ansicode[12] = "\e[38;5;";
-	strcat(ansicode, code);
+	strncat(ansicode, code, 3);
 	strcat(ansicode, "m");
 	std::cout << ansicode; }
 
@@ -128,14 +128,14 @@ void setFRGRND(const unsigned short arg) {
 	char ansicode[12] = "\e[38;5;";
 	char code[4];
 	snprintf(code, 4, "%d", arg);
-	strcat(ansicode, code);
+	strncat(ansicode, code, 3);
 	strcat(ansicode, "m");
 	std::cout << ansicode; }
 
 
 void setBKGRND(const char *code) {
 	char ansicode[12] = "\e[48;5;";
-	strcat(ansicode, code);
+	strncat(ansicode, code, 3);
 	strcat(ansicode, "m");
 	std::cout << ansicode; }
 
@@ -143,7 +143,7 @@ void setBKGRND(const unsigned short arg) {
 	char ansicode[12] = "\e[48;5;";
 	char code[4];
 	snprintf(code, 4, "%d", arg);
-	strcat(ansicode, code);
+	strncat(ansicode, code, 3);
 	strcat(ansicode, "m");
 	std::cout << ansicode; }
 

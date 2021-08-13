@@ -80,10 +80,8 @@ int main(void) {
 ‎  
 ## License: LGPL-3.0
 [GNU General Public License v3.0](https://github.com/Dolfost/ansicolors/blob/main/COPYING)  
-‎  
-‎  
-‎  
-‎
-‎
-‎
+
+
+
+
 ##### *Coffe...?* [PayPal](https://www.paypal.com/donate?hosted_button_id=BZ6DNYKFPBWNA)  

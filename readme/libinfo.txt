@@ -164,4 +164,4 @@ bWHTh		white;
 
 links:
   sourse:	https://github.com/Dolfost/ansicolors-cpp
-  license:	https://github.com/Dolfost/ansicolors-cpprs/blob/main/COPYING
+  license:	https://github.com/Dolfost/ansicolors-cpp/blob/main/COPYING

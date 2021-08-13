@@ -75,11 +75,11 @@ int main(void) {
 }
 ```
 
-### That's not all, the rest of constants and other libinfo: [libinfo.txt](https://github.com/Dolfost/ansicolors/blob/main/readme/libinfo.txt). 
+### That's not all, the rest of constants and other libinfo: [libinfo.txt](https://github.com/Dolfost/ansicolors-cpp/blob/main/readme/libinfo.txt). 
 -------------------------------------------
 ‎  
 ## License: LGPL-3.0
-[GNU General Public License v3.0](https://github.com/Dolfost/ansicolors/blob/main/COPYING)  
+[GNU General Public License v3.0](https://github.com/Dolfost/ansicolors-cpp/blob/main/COPYING)  
 
 
 

@@ -163,5 +163,5 @@ bCYNh		cyan,
 bWHTh		white;
 
 links:
-  sourse:	https://github.com/Dolfost/ansicolors
-  license:	https://github.com/Dolfost/ansicolors/blob/main/COPYING
+  sourse:	https://github.com/Dolfost/ansicolors-cpp
+  license:	https://github.com/Dolfost/ansicolors-cpprs/blob/main/COPYING

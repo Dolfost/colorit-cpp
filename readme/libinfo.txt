@@ -1,5 +1,5 @@
 filename:	ansicolors.hpp
-version: 	2.1.0
+version: 	2.1.1
 funcount:	4
 structcount:	0
 created: 	25/07/2021
@@ -40,6 +40,9 @@ changes:
 
 2.1.0   13/08/2021		remove buffer overflow when an array larger
 				than 4 bytes is passed to the functions;
+
+2.1.1	14/08/2021		fix bMAGT error
+
 
 syntax: 
 XXX   - foreground color,
@@ -139,7 +142,7 @@ bRED		red,
 bGRN		green,
 bYEL		yellow,
 bBLU		blue,
-bMAGT		magneta,
+bMAG		magneta,
 bCYN		cyan,
 bWHT		white;
                 

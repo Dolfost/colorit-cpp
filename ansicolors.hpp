@@ -89,7 +89,7 @@
 #define bGRN		"\e[42m"
 #define bYEL		"\e[43m"
 #define bBLU		"\e[44m"
-#define bMAGT		"\e[45m"
+#define bMAG		"\e[45m"
 #define bCYN		"\e[46m"
 #define bWHT		"\e[47m"
 

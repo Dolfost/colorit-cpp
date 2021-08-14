@@ -1,6 +1,6 @@
 # ansicolors
+> ![demo](https://github.com/Dolfost/ansicolors-cpp/blob/update/readme/demo.gif)
 
-## Description 
 This C++ the library simplifies changing the appearance of the terminal text output.  
 Independently of each other you can change the style and color of the text, the background color.
 

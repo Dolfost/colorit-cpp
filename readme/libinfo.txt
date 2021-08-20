@@ -1,5 +1,5 @@
-filename:	ansicolors.hpp
-version: 	2.1.1
+filename:	colorit.hpp
+version: 	3.0.14
 funcount:	4
 structcount:	0
 created: 	25/07/2021
@@ -8,55 +8,71 @@ created by:	https://github.com/Dolfost
 description:
 Change the color and mode of the text by passing constants to the stream
 by your favorite method of output such as 'cout' or 'printf()', or using
-functions setBKGRND() and setFRGRND().
+functions setBack() and setFore().
 (see list below)
 
 usage:
-     setFRGRND                            setFRGRND
-void setFOREGROUND(const short arg), void setFOREGROUND(const *char code)
+void setFore(const short arg)
 
 void return : 		has no return value,
-setFOREGROUND : 	set foreground (text) color,
-setFRGRND :		alias (you can call a function through it),
-const char *code &
+setFore : 		set foreground (text) color,
 const short arg :	color value [0 - 255];
 
-     setBKGRND				   setBKGRND
-void setBACKGROUND(const short arg), void setBACKGROUND(const *char code)
+void setBack(const short arg)
 
 void return : 		has no return value,
-setBACKGROUND :		set background color,
-setBKGRND : 		alias (you can call a function through it),
-const char *code &
-const short arg:	color value in char string [0 - 255];
+setBack :		set background color,
+const short arg:	color value [0 - 255];
+
+
+void setFore(const char r, const char g, const char b)
+
+void return : 		has no return value,
+setFore :		set foreground color,
+const short r, g, b:	color value in short (r[0 - 255], g[0 - 255], b[0 - 255]);
+
+
+void setBack(const char r, const char g, const char b)
+
+void return : 		has no return value,
+setBack :		set background color,
+const short r, g, b:	color value in short (r[0 - 255], g[0 - 255], b[0 - 255]);
+
+
 
 tips:
-Functions above read no more than the first three elements of the
-array or the first three digits of the number passed to the function.
+Functions above read no more than the first three digits of the number passed to the function.
 
 changes:
-2.0.3	28/07/2021		completely rework the library, add
-				functions setFRGRND() and setBKGRND();
+2.0.3	28/07/2021			completely rework the library, add
+					functions setFRGRND() and setBKGRND();
 
-2.1.0   13/08/2021		remove buffer overflow when an array larger
-				than 4 bytes is passed to the functions;
+2.1.0   13/08/2021			remove buffer overflow when an array larger
+					than 4 bytes is passed to the functions;
 
-2.1.1	14/08/2021		fix "bMAGT" error;
+2.1.1	14/08/2021			fix "bMAGT" error;
 
+3.0.14	16/08/2021 - 20/08/2021		change the name of functions, change the way
+					data is accessed.
+					add new styles: PRIMARY, RAPID_BLINK, SLOW_BLINK,
+					DBL_UNDERLINE, NOT_INVERSED, DEF_INTENSITY, NOT_UNDERLINED,
+					NOT_BLINK, NOT_REVERSED, NOT_INVERSED, NOT_CROSSED_OUT,
+					DEF_BACKGROUND, OVERLINED, NOT_OVERLINED. change the library name from 
+					ansicolors to colorit;
 
 syntax: 
-XXX   - foreground color,
-mXXX  - text mode (style),
-bXXX  - background color,
-xXXXh - high intensty color;
+Fore.XXX   - foreground color,
+Style.XXX  - text mode (style),
+Back.XXX  - background color,
+Bright.XXX.XXX - high intensity color;
 
 example: 
 #include <iostream>
 #include "ansicolors/ansicolors.hpp"
 int main(void) {
-	std::cout << RED ITALIC "Hello!" sRST "\n"; // red itaic text
+	std::cout << Fore.RED << Style.ITALIC << "Hello!" << Style.RST << "\n"; // red itaic text
 
-	std::cout << BLK bWHT BLD "Im an colorful libriary!" sRST "\n";
+	std::cout << Back.WHT << Fore.BLK << Style.BLD << "Im an colorful libriary!" << Style.RST << "\n";
 	// black bold text on white background
 
 	return 0;
@@ -64,107 +80,144 @@ int main(void) {
 
 constants list:
 -Reset:
-sRST		style reset, resets all changes;
+Fore.RST, Fore.RESET	style reset, resets all changes;
 
--Text modes:
-mBOLD 		bold mode,
-mDIM  		dim/faint mode,
-mFAINT 		dim/faint mode,
-mITALIC 	italic mode,
-mUNDERLINE	underline mode,
-mBLINKING	blinking mode,
-mINVERT		invert/reverse mode,
-mREVERSE	invert/reverse mode,
-mINVISIBLE	invisible mode,
-mSTRIKETHROUGH	strikethrough mode,
-                
-mBLD 		bold mode,
-mDM  		dim/faint mode,
-mFNT 		dim/faint mode,
-mITLC 		italic mode,
-mUNDRLN		underline mode,
-mBLNK		blink mode,
-mINVRT		invert/reverse mode,
-mRVRS		invert/reverse mode,
-mINVSBL		invisible mode,
-mSTRKTHRGH	strikethrough mode;
+-Text modes (Example: Style.ITALIC)
+ RESET		  reset
+ BOLD             bold
+ DIM              dim
+ FAINT            faint
+ ITALIC           italic
+ UNDERLINE        underline
+ BLINK	     	  blink (slow blink)
+ SLOW_BLINK       slow blink
+ RAPID_BLINK      rapid blink
+ INVERT           invert (reverse)
+ REVERSE          reverse (invert)
+ HIDE             hide (invisible)
+ STRIKE           strikethrough
+ PRIMARY	  primary (default font)   
+ DBL_UNDERLINE    double underline
+ DEF_INTENSITY    default intensity
+ NOT_UNDERLINED   not underlined
+ NOT_BLINK	  not blink
+ NOT_REVERSED     not reversed (not inversed)
+ NOT_INVERSED     not inversed (not reversed)
+ NOT_CROSSED_OUT  not crossed out
+ DEF_BACKGROUND   default background
+ OVERLINED	  overlined   
+ NOT_OVERLINED    not overlined
+			                           
+Aliases:    
+ RST              reset
+ BLD              bold
+ DIM              dim
+ FNT              faint
+ ITLC             italic
+ UNDRLN           underline
+ BLNK	          blink (slow blink)
+ SLW_BLNK         slow blink
+ RPD_BLNK	  rapid blink                   
+ INVRT            invert (reverse)
+ RVRS             reverse (invert)
+ HIDE             hide (invisible)
+ STRK             strikethrough
+ PRMR	          primary (default font)   
+ DBL_UNDRLN       double underline
+ DEF_INTNST       default intensity
+ NOT_UNDRLND      not underlined
+ NOT_BLNK	  not blink                     
+ NOT_RVRSD        not reversed (not inversed)
+ NOT_INVRSD       not inversed (not reversed)
+ NOT_CRSSD_OUT    not crossed out
+ DEF_BKGRND       default background
+ OVRLND	          overlined   
+ NOT_OVRLND       not overlined
 
--Foreground colors:
-BLACK		black,
-RED		red,
-GREEN		green,
-YELLOW		yellow,
-BLUE		blue,
-MAGNETA		magneta,
-CYAN		cyan,
-WHITE		white,
-                
-BLK		black,
-RED		red,
-GRN		green,
-YEL		yellow,
-BLU		blue,
-MAG		magneta,
-CYN		cyan,
-WHT		white;
-                
--Hight intensty foreground colors:
-BLACKh		black,
-REDh		red,
-GREENh		green,
-YELLOWh		yellow,
-BLUEh		blue,
-MAGNETAh	magneta,
-CYANh		cyan,
-WHITEh		white,
-                
-BLKh		black,
-REDh		red,
-GRNh		green,
-YELh		yellow,
-BLUh		blue,
-MAGh		magneta,
-CYNh		cyan,
-WHTh		white;
 
--Backgroud colors:
-bBLACK		black,
-bRED		red,
-bGREEN		green,
-bYELLOW		yellow,
-bBLUE		blue,
-bMAGNETA	magneta,
-bCYAN		cyan,
-bWHITE		white,
-               
-bBLK		black,
-bRED		red,
-bGRN		green,
-bYEL		yellow,
-bBLU		blue,
-bMAG		magneta,
-bCYN		cyan,
-bWHT		white;
-                
--Hight intensty background colors:
-bBLACKh		black,
-bREDh		red,
-bGREENh		green,
-bYELLOWh	yellow,
-bBLUEh		blue,
-bMAGNETAh	magneta,
-bCYANh		cyan,
-bWHITEh		white,
-                
-bBLKh		black,
-bREDh		red,
-bGRNh		green,
-bYELh		yellow,
-bBLUh		blue,
-bMAGh		magneta,
-bCYNh		cyan,
-bWHTh		white;
+-Foreground colors (Example: Fore.RED)
+ BLACK   black
+ RED     red                                       
+ GREEN   green
+ YELLOW  yellow
+ BLUE    blue
+ MAGNETA magneta
+ CYAN    cyan
+ WHITE   white
+
+Aliases:
+ BLK     black
+ RED     red   
+ GRN     green
+ YEL     yellow
+ BLU     blue
+ MAG     magneta
+ CYN     cyan
+ WHT     white
+
+
+-Background colors (Example: Back.RED)
+ BLACK   black
+ RED     red                                       
+ GREEN   green
+ YELLOW  yellow
+ BLUE    blue
+ MAGNETA magneta
+ CYAN    cyan
+ WHITE   white
+
+Aliases:
+ BLK     black
+ RED     red   
+ GRN     green
+ YEL     yellow
+ BLU     blue
+ MAG     magneta
+ CYN     cyan
+ WHT     white
+
+
+-High intensity colors (Example: Bright.XXX.Xxx)
+	Foreground colors (Example: Bright.Fore.RED)
+	 BLACK   black
+	 RED     red                                       
+	 GREEN   green
+	 YELLOW  yellow
+	 BLUE    blue
+	 MAGNETA magneta
+	 CYAN    cyan
+	 WHITE   white
+	
+	Aliases:
+	 BLK     black
+	 RED     red   
+	 GRN     green
+	 YEL     yellow
+	 BLU     blue
+	 MAG     magneta
+	 CYN     cyan
+	 WHT     white
+	
+	Background colors (Example: Bright.Back.RED)
+	 BLACK   black
+	 RED     red                                       
+	 GREEN   green
+	 YELLOW  yellow
+	 BLUE  	 blue
+	 MAGNETA magneta
+	 CYAN    cyan
+	 WHITE   white
+
+	Aliases:
+	 BLK     black
+	 RED     red   
+	 GRN     green
+	 YEL     yellow
+	 BLU     blue
+	 MAG     magneta
+	 CYN     cyan
+	 WHT     white
 
 links:
-  sourse:	https://github.com/Dolfost/ansicolors-cpp
-  license:	https://github.com/Dolfost/ansicolors-cpp/blob/main/COPYING
+   sourse:       https://github.com/Dolfost/colorit-cpp
+   license:      https://github.com/Dolfost/colorit-cpp/blob/main/COPYING	

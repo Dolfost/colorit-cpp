@@ -1,5 +1,5 @@
-# ansicolors
-> ![demo](https://github.com/Dolfost/ansicolors-cpp/blob/update/readme/demo.gif)
+# colorit
+> ![demo](https://github.com/Dolfost/colorit-cpp/blob/update/readme/demo.gif)
 
 This C++ the library simplifies changing the appearance of the terminal text output.  
 Independently of each other you can change the style and color of the text, the background color.
@@ -7,36 +7,43 @@ Independently of each other you can change the style and color of the text, the 
 ## Usage
 
 ### Functions
->`setBACKGROUND(*char)`, `setBACKGROUND(short)`,   
->`setFOREGROUND(*char)`, `setFOREGROUND(short)`;  
+>`setBack(short arg)`,   
+>`setFore(short arg)`;  
+Arguments:  
+> `short arg`: 1 of 256 color format. *range*: [0 - 255],  
+
+>`setBack(short r, short g, short b)`,   
+>`setFore(short r, short g, short b)`;  
+Arguments:  
+> `short r, g, b`: RGB color format. *range of each varriable*: [0 - 255], 
+ 
 **Functions have no return values.**
-##### Arguments:  
-> `short`: *range*: [0 - 255],  
->`*char`: array (adress of first element of array). 
+
 
 #### Terminal colors
 
-> ![Colors](https://github.com/Dolfost/ansicolors/blob/main/readme/terminal_colors.png)
-#### More about functions: [libinfo.txt](https://github.com/Dolfost/ansicolors/blob/main/readme/libinfo.txt).
+> ![Colors](https://github.com/Dolfost/colorit-cpp/blob/main/readme/terminal_colors.png)
+#### More about functions: [libinfo.txt](https://github.com/Dolfost/colorit-cpp/blob/main/readme/libinfo.txt).
 
 ### Constants
 
 #### Text modes:
-mXXX           | Name
+Style.           | Name
 ---------------|-------------------------
-mBOLD 		     | bold mode
-mDIM  		     | dim/faint mode
-mFAINT 		     | dim/faint mode 
-mITALIC 	     | italic mode 
-mUNDERLINE	   | underline mode 
-mBLINKING	     | blinking mode 
-mINVERT		     | invert/reverse mode  
-mREVERSE       |	invert/reverse mode  
-mINVISIBLE	   | invisible mode  
-mSTRIKETHROUGH |	strikethrough mode
-                
+BOLD 		     | bold mode
+DIM  		     | dim/faint mode
+FAINT 		     | dim/faint mode 
+ITALIC 	     | italic mode 
+UNDERLINE	   | underline mode 
+OVERLINE     | overline mode
+BLINKING	     | blinking mode 
+INVERT		     | invert/reverse mode  
+REVERSE       |	invert/reverse mode  
+HIDE      	   | invisible mode  
+STRIKE         |	strikethrough mode
+               
 #### Foreground colors:
-XXX        | Name
+Fore.        | Name
 -----------|--------------------------------
 BLACK		   |    black 
 RED		     |    red
@@ -48,38 +55,38 @@ CYAN		   |    cyan
 WHITE		   |     white
                 
 #### Backgroud colors:
-bXXX       | Name
+Back.       | Name
 -----------|--------------------------------
-bBLACK		 |    black
-bRED		   |    red 
-bGREEN	   |   	green
-bYELLOW		 |    yellow
-bBLUE		   |    blue 
-bMAGNETA	 |    magneta
-bCYAN		   |    cyan
-bWHITE		 |    white
+BLACK		 |    black
+RED		   |    red 
+GREEN	   |   	green
+YELLOW		 |    yellow
+BLUE		   |    blue 
+MAGNETA	 |    magneta
+CYAN		   |    cyan
+WHITE		 |    white
 
 #### Reset
-sXXX      | Name
+Style.      | Name
 ----------|---------------------------------
-sRST		  |     style reset, resets all changes
+RST		  |     style reset, resets all changes
 
 ### Example:
 ```C++
 #include <iostream>
-#include "ascicolor/ascicolors.hpp"
+#include "colorit/colorit.hpp"
 
 int main(void) {
-  std::cout << RED mITALIC "Hello!" sRST "\n"; // prints red text in italic style (mode)
+  std::cout << Fore.RED <<  Style.ITALIC << "Hello!" << Style.RST << "\n"; // prints red text in italic style (mode)
   return 0;
 }
 ```
 
-### That's not all, the rest of constants and other libinfo: [libinfo.txt](https://github.com/Dolfost/ansicolors-cpp/blob/main/readme/libinfo.txt). 
+### That's not all, the rest of constants, aliases, modes and other libinfo: [libinfo.txt](https://github.com/Dolfost/colorit-cpp/blob/main/readme/libinfo.txt). 
 -------------------------------------------
 ‎  
 ## License: LGPL-3.0
-[GNU General Public License v3.0](https://github.com/Dolfost/ansicolors-cpp/blob/main/COPYING)  
+[GNU General Public License v3.0](https://github.com/Dolfost/colorit-cpp/blob/main/COPYING)  
 
 
 

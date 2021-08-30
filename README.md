@@ -7,18 +7,19 @@ Independently of each other you can change the style and color of the text, the 
 ## Usage
 
 ### Functions
->`setBack(short arg)`,   
->`setFore(short arg)`;  
+>`char* setBack(short arg)`,   
+>`char* setFore(short arg)`;  
 Arguments:  
-> `short arg`: 1 of 256 color format. *range*: [0 - 255],  
+> `short arg`: 1 of 256 color format. *range*: [0 - 255];  
+Return:  
+`char*`: ansicode. See [showall.cpp](https://github.com/Dolfost/colorit-cpp/blob/main/readme/run/showall.cpp) for example.  
 
->`setBack(short r, short g, short b)`,   
->`setFore(short r, short g, short b)`;  
+>`char* setBack(short r, short g, short b)`,   
+>`char* setFore(short r, short g, short b)`;  
 Arguments:  
-> `short r, g, b`: RGB color format. *range of each varriable*: [0 - 255], 
- 
-**Functions have no return values.**
-
+> `short r, g, b`: RGB color format. *range of each varriable*: [0 - 255];   
+Return:  
+`char*`: ansicode. See [showall.cpp](https://github.com/Dolfost/colorit-cpp/blob/main/readme/run/showall.cpp) for example.  
 
 #### Terminal colors
 

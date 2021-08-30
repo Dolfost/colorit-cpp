@@ -12,14 +12,12 @@ int main(){
 	std::cout << Style.ITLC << "Enter a terminal color code <0-255> " << Style.RST;
 	int code;
 	std::cin >> code;
-	setFore(code);
-	std::cout << "\nThis text in color #" << code << "!" << Style.RST << "\n"
+	std::cout << setFore(code) << "\nThis text in color #" << code << "!" << Style.RST << "\n"
 		     "But this sentence not colorful...\n";
 	std::cout << Style.ITLC << "Enter a terminal rgb color code <0-255> " << Style.RST;
 	int r, g, b;
 	std::cin >> r >> g >> b;
-	setFore(r,g,b);
-	std::cout << "\nThis text in color r"<<r<<" g"<<g<<" b"<<b<< "!" << Style.RST << "\n"
+	std::cout << setFore(r,g,b) << "\nThis text in color r"<<r<<" g"<<g<<" b"<<b<< "!" << Style.RST << "\n"
 		     "But this sentence not colorful...\n";
 	return 0;
 }

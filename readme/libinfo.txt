@@ -1,7 +1,7 @@
 filename:	colorit.hpp
-version: 	3.0.14
+version: 	3.1.2
 funcount:	4
-structcount:	0
+structcount:	12
 created: 	25/07/2021
 created by:	https://github.com/Dolfost
 
@@ -12,31 +12,30 @@ functions setBack() and setFore().
 (see list below)
 
 usage:
-void setFore(const short arg)
+char* setFore(const short arg)
 
-void return : 		has no return value,
 setFore : 		set foreground (text) color,
-const short arg :	color value [0 - 255];
+const short arg :	color value [0 - 255],
+<return>char* :		ansicode;
 
-void setBack(const short arg)
 
-void return : 		has no return value,
+char* setBack(const short arg)
+
 setBack :		set background color,
-const short arg:	color value [0 - 255];
+const short arg:	color value [0 - 255],
+<return>char* :		ansicode;
 
+char* setFore(const char r, const char g, const char b)
 
-void setFore(const char r, const char g, const char b)
-
-void return : 		has no return value,
 setFore :		set foreground color,
-const short r, g, b:	color value in short (r[0 - 255], g[0 - 255], b[0 - 255]);
+const short r, g, b:	color value in short (r[0 - 255], g[0 - 255], b[0 - 255]),
+<return>char* :		ansicode;
 
+char* setBack(const char r, const char g, const char b)
 
-void setBack(const char r, const char g, const char b)
-
-void return : 		has no return value,
 setBack :		set background color,
-const short r, g, b:	color value in short (r[0 - 255], g[0 - 255], b[0 - 255]);
+const short r, g, b:	color value in short (r[0 - 255], g[0 - 255], b[0 - 255]),
+<return>char* :		ansicode;
 
 
 
@@ -52,19 +51,21 @@ changes:
 
 2.1.1	14/08/2021			fix "bMAGT" error;
 
-3.0.14	16/08/2021 - 20/08/2021		change the name of functions, change the way
-					data is accessed.
+3.0.14	16/08/2021 - 20/08/2021		change the name of functions, change the way data is accessed.
 					add new styles: PRIMARY, RAPID_BLINK, SLOW_BLINK,
 					DBL_UNDERLINE, NOT_INVERSED, DEF_INTENSITY, NOT_UNDERLINED,
 					NOT_BLINK, NOT_REVERSED, NOT_INVERSED, NOT_CROSSED_OUT,
 					DEF_BACKGROUND, OVERLINED, NOT_OVERLINED. change the library name from 
 					ansicolors to colorit;
 
+3.1.2   30/08/2021			add new aliases(S, H, F, B), functions remake;
+
+
 syntax: 
-Fore.XXX   - foreground color,
-Style.XXX  - text mode (style),
-Back.XXX  - background color,
-Bright.XXX.XXX - high intensity color;
+Fore.XXX, F.XXX   - foreground color,
+Style.XXX, S.XXX  - text mode (style),
+Back.XXX, B.XXX  - background color,
+Bright.XXX.XXX, H.XXX.XXX - high intensity color;
 
 example: 
 #include <iostream>
@@ -82,7 +83,7 @@ constants list:
 -Reset:
 Fore.RST, Fore.RESET	style reset, resets all changes;
 
--Text modes (Example: Style.ITALIC)
+-Text modes (Example: Style.ITALIC, S.ITALIC)
  RESET		  reset
  BOLD             bold
  DIM              dim
@@ -135,7 +136,7 @@ Aliases:
  NOT_OVRLND       not overlined
 
 
--Foreground colors (Example: Fore.RED)
+-Foreground colors (Example: Fore.RED, F.RED)
  BLACK   black
  RED     red                                       
  GREEN   green
@@ -156,7 +157,7 @@ Aliases:
  WHT     white
 
 
--Background colors (Example: Back.RED)
+-Background colors (Example: Back.RED, B.RED)
  BLACK   black
  RED     red                                       
  GREEN   green
@@ -177,8 +178,8 @@ Aliases:
  WHT     white
 
 
--High intensity colors (Example: Bright.XXX.Xxx)
-	Foreground colors (Example: Bright.Fore.RED)
+-High intensity colors (Example: Bright.XXX.XXX, H.XXX.XXX)
+	Foreground colors (Example: Bright.Fore.RED, H.Fore.RED, H.F.RED)
 	 BLACK   black
 	 RED     red                                       
 	 GREEN   green
@@ -198,7 +199,7 @@ Aliases:
 	 CYN     cyan
 	 WHT     white
 	
-	Background colors (Example: Bright.Back.RED)
+	Background colors (Example: Bright.Back.RED, H.Back.RED, H.B.RED)
 	 BLACK   black
 	 RED     red                                       
 	 GREEN   green

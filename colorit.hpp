@@ -1,5 +1,5 @@
 // colorit.hpp -- colors based on ANSI Escape Sequences
-// ver: 3.0.14
+// v3.1.2
 
 #ifndef COLORIT_H
 #define COLORIT_H
@@ -87,7 +87,7 @@ const struct Colorit_fore_ {
 	const char *MAG     {Colorit_data.Magneta_fg};
 	const char *CYN     {Colorit_data.Cyan_fg};
 	const char *WHT     {Colorit_data.White_fg};
-} Fore;
+} Fore, F;
 
 const struct Colorit_back_ {
 	const char *BLACK   {Colorit_data.Black_bg};
@@ -107,7 +107,7 @@ const struct Colorit_back_ {
 	const char *MAG     {Colorit_data.Magneta_bg};
 	const char *CYN     {Colorit_data.Cyan_bg};
 	const char *WHT     {Colorit_data.White_bg};	
-} Back;
+} Back, B;
 
 const struct Colorit_bright_ {
 	struct Colorit_h_Fore {
@@ -128,7 +128,7 @@ const struct Colorit_bright_ {
 		const char *MAG     {Colorit_data.h_Magneta_fg};
 		const char *CYN     {Colorit_data.h_Cyan_fg};
 		const char *WHT     {Colorit_data.h_White_fg};
-	} Fore;
+	} Fore, F;
 	struct Colorit_h_Back {
 		const char *BLACK   {Colorit_data.h_Black_bg};
 		const char *RED     {Colorit_data.h_Red_bg};
@@ -147,8 +147,8 @@ const struct Colorit_bright_ {
 		const char *MAG     {Colorit_data.h_Magneta_bg};
 		const char *CYN     {Colorit_data.h_Cyan_bg};
 		const char *WHT     {Colorit_data.h_White_bg};
-	} Back;
-} Bright;
+	} Back, B;
+} Bright, H;
 
 const struct Colorit_style_ {
 	const char *RESET            {Colorit_data.Reset};
@@ -200,66 +200,73 @@ const struct Colorit_style_ {
 	const char *DEF_BKGRND       {Colorit_data.Default_Background};
 	const char *OVRLND	     {Colorit_data.Overlined};
 	const char *NOT_OVRLND       {Colorit_data.Not_Overlined};
-} Style;
+} Style, S;
 
+char colorit_ansicode_[20] {"\e["};
 
-void setFore(const short arg) {
-	char ansicode[12] = "\e[38;5;";
+char* setFore(const short arg) {
+	colorit_ansicode_[2] = '\0';
+	strcat(colorit_ansicode_, "38;5;");
 	char code[4];
 	snprintf(code, 4, "%d", arg);
-	strcat(ansicode, code);
-	strcat(ansicode, "m");
-	std::cout << ansicode; }
+	strcat(colorit_ansicode_, code);
+	strcat(colorit_ansicode_, "m");
+	return colorit_ansicode_; }
 
-void setBack(const short arg) {
-	char ansicode[12] = "\e[48;5;";
+
+char* setBack(const short arg) {
+	colorit_ansicode_[2] = '\0';
+	strcat(colorit_ansicode_, "48;5;");
 	char code[4];
 	snprintf(code, 4, "%d", arg);
-	strcat(ansicode, code);
-	strcat(ansicode, "m");
-	std::cout << ansicode; }
+	strcat(colorit_ansicode_, code);
+	strcat(colorit_ansicode_, "m");
+	return colorit_ansicode_; }
 
-
-void setFore(short r, short g, short b) {
+char* setFore(short r, short g, short b) {
 	char red[4];
 	char green[4];
 	char blue[4];
+
+	colorit_ansicode_[2] = '\0';
 
 	snprintf(red, 4, "%d", r);
 	snprintf(green, 4, "%d", g);
 	snprintf(blue, 4, "%d", b);
 
-	char ansicode[20] = "\e[38;2;";
+	strcat(colorit_ansicode_, "38;2;");
 
-	strcat(ansicode, red);
-	strcat(ansicode, ";");
-	strcat(ansicode, green);
-	strcat(ansicode, ";");
-	strcat(ansicode, blue);
-	strcat(ansicode, "m");
+	strcat(colorit_ansicode_, red);
+	strcat(colorit_ansicode_, ";");
+	strcat(colorit_ansicode_, green);
+	strcat(colorit_ansicode_, ";");
+	strcat(colorit_ansicode_, blue);
+	strcat(colorit_ansicode_, "m");
 
-	std::cout << ansicode; }
+	return colorit_ansicode_; }
 
-void setBack(short r, short g, short b) {
+
+char* setBack(short r, short g, short b) {
 	char red[4];
 	char green[4];
 	char blue[4];
+
+	colorit_ansicode_[2] = '\0';
 
 	snprintf(red, 4, "%d", r);
 	snprintf(green, 4, "%d", g);
 	snprintf(blue, 4, "%d", b);
 
-	char ansicode[20] = "\e[48;2;{";
-	strcat(ansicode, red);
-	strcat(ansicode, ";");
-	strcat(ansicode, green);
-	strcat(ansicode, ";");
-	strcat(ansicode, blue);
-	strcat(ansicode, "m");
+	strcat(colorit_ansicode_, "48;2;");
 
-	std::cout << ansicode;
-}
+	strcat(colorit_ansicode_, red);
+	strcat(colorit_ansicode_, ";");
+	strcat(colorit_ansicode_, green);
+	strcat(colorit_ansicode_, ";");
+	strcat(colorit_ansicode_, blue);
+	strcat(colorit_ansicode_, "m");
 
+	return colorit_ansicode_; }
 #endif
 
 // last edit: 20/08/2021
